@@ -8,5 +8,8 @@
 
 <ul>
   <li><%= link_to 'Edit', edit_article_path(@article) %></li>
+  <li>
+    <%= link_to 'Destroy', article_path, method: :delete, data: { "turbo-method": :delete } %>
+  </li>
   <li><%= link_to 'Back', root_path %></li>
 </ul>
