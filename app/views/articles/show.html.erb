@@ -1,15 +1,13 @@
-<h1>
-  <%= @article.title %>
-</h1>
+<div class="blog-post">
+  <h2 class="blog-post-title"><%= @article.title %></h2>
+  <p class="blog-post-meta"><%= month_day_comma_year(@article.created_at) %> <a href="#">Chris</a></p>
+  <p><%= truncate(@article.body, length: 150) %></p>
 
-<p>
-  <%= @article.body %>
-</p>
+    <%= link_to "continue reading", @article, class: 'btn btn-link' %> 
 
-<ul>
-  <li><%= link_to 'Edit', edit_article_path(@article) %></li>
-  <li>
-    <%= link_to 'Destroy', article_path, method: :delete, data: { "turbo-method": :delete } %>
-  </li>
-  <li><%= link_to 'Back', root_path %></li>
-</ul>
+    <div class="d-flex">
+      <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-secondary mr-1' %>
+      <%= button_to "Delete", @article, method: 'delete', class: "btn btn-danger mr-1" %>
+      <%= link_to 'Back', root_path, class: "btn btn-secondary" %>
+    </div>
+</div>

@@ -1,11 +1,12 @@
 <div class="blog-post">
   <h2 class="blog-post-title"><%= article.title %></h2>
   <p class="blog-post-meta"><%= month_day_comma_year(article.created_at) %> <a href="#">Chris</a></p>
-  <p><%= article.body %></p>
+  <p><%= truncate(article.body, length: 150) %></p>
+
+    <%= link_to "continue reading", article, class: 'btn btn-link' %> 
+
     <div class="d-flex">
       <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-secondary mr-2' %>
-      <%= button_to "Delete", article, method: 'delete', data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <%= button_to "Delete", article, method: 'delete', class: "btn btn-danger" %>
     </div>
 </div>
-
-<%# 42:00 %>
